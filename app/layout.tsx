@@ -3,6 +3,7 @@ import { Geist_Mono, Hedvig_Letters_Serif } from "next/font/google";
 import "./globals.css";
 import ConvexClientProvider from "@/components/ConvexClientProvider";
 import { ClerkProvider } from "@clerk/nextjs";
+import { shadcn } from "@clerk/themes";
 
 const hedvigLettersSerif = Hedvig_Letters_Serif({
   variable: "--font-hedvig-letters-serif",
@@ -34,7 +35,7 @@ export default function RootLayout({
       >
         <ClerkProvider
           dynamic
-          appearance={{ theme: "shadcn" }}
+          appearance={{ theme: shadcn }}
           signInUrl="/auth/sign-in"
           signUpUrl="/auth/sign-up"
         >
