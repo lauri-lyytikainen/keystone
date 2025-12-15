@@ -167,7 +167,7 @@ const Navbar = ({
           </div>
           <div className="flex gap-2 pl-2">
             <Authenticated>
-              <UserButton />
+              <UserButton showName />
             </Authenticated>
             <Unauthenticated>
               <Button asChild variant="outline" size="sm">
