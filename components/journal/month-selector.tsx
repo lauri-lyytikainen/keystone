@@ -23,7 +23,7 @@ export default function MonthSelector(props: DaySelectorProps) {
       <Popover>
         <Button asChild variant={"ghost"}>
           <PopoverTrigger>
-            <h2 className="text-4xl">
+            <h2 className="text-2xl md:text-4xl">
               {props.currentMonth.toLocaleString("default", {
                 month: "long",
                 year: "numeric",

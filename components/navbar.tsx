@@ -1,6 +1,6 @@
 "use client";
 
-import { Book, Menu, Sunset, Trees, User, Zap } from "lucide-react";
+import { Book, BookOpen, Menu, Sunset, Trees, User, Zap } from "lucide-react";
 
 import {
   Accordion,
@@ -27,6 +27,7 @@ import {
 import { Authenticated, Unauthenticated } from "convex/react";
 import { SignInButton, SignUpButton, UserButton } from "@clerk/nextjs";
 import { SignUp } from "@clerk/clerk-react";
+import Link from "next/link";
 
 interface MenuItem {
   title: string;
@@ -167,6 +168,11 @@ const Navbar = ({
           </div>
           <div className="flex gap-2 pl-2">
             <Authenticated>
+              <Button asChild>
+                <Link href="/journal">
+                  <BookOpen /> Journal
+                </Link>
+              </Button>
               <UserButton showName />
             </Authenticated>
             <Unauthenticated>
@@ -218,7 +224,12 @@ const Navbar = ({
                     {menu.map((item) => renderMobileMenuItem(item))}
                   </Accordion>
                   <Authenticated>
-                    <div className="flex flex-row justify-end">
+                    <div className="flex flex-col items-end gap-4">
+                      <Button asChild className="w-full">
+                        <Link href="/journal">
+                          <BookOpen /> Journal
+                        </Link>
+                      </Button>
                       <UserButton showName />
                     </div>
                   </Authenticated>

@@ -4,7 +4,7 @@ export default function AppLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="flex min-h-screen min-w-screen justify-center items-center">
+    <div className="flex min-h-screen min-w-screen justify-center items-center bg-muted">
       {children}
     </div>
   );
