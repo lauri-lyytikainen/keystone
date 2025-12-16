@@ -1,6 +1,7 @@
 "use client";
 
 import { useUser } from "@clerk/clerk-react";
+import { ChevronLeft } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
@@ -30,7 +31,10 @@ export default function JournalLayout({
   return (
     <div className="min-h-screen mx-auto container p-4 flex flex-col">
       <div className="grow">
-        <Link href="/">Back to Home</Link>
+        <Link href="/" className="flex">
+          <ChevronLeft />
+          Back to Home
+        </Link>
         {children}
       </div>
     </div>

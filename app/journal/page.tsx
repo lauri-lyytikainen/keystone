@@ -1,30 +1,35 @@
 "use client";
 
-import { Authenticated, useMutation, useQuery } from "convex/react";
-import { api } from "@/convex/_generated/api";
-import { Button } from "@/components/ui/button";
+import { useState } from "react";
+import MonthSelector from "@/components/journal/month-selector";
+import JournalEntryList from "@/components/journal/journal-entry-list";
 
 export default function JournalPage() {
-  const entries = useQuery(api.entry.getEntries);
-  const addEntry = useMutation(api.entry.addEntry);
+  const [selectedMonth, setSelectedMonth] = useState(new Date());
+
+  function handlePreviousMonth() {
+    const previousMonth = new Date(selectedMonth);
+    previousMonth.setMonth(selectedMonth.getMonth() - 1);
+    setSelectedMonth(previousMonth);
+  }
+
+  function handleNextMonth() {
+    const nextMonth = new Date(selectedMonth);
+    nextMonth.setMonth(selectedMonth.getMonth() + 1);
+    setSelectedMonth(nextMonth);
+  }
 
   return (
     <>
-      <h1>Journal</h1>
-      <Authenticated>
-        <Button onClick={() => addEntry({ text: "New entry" })}>
-          Add Entry
-        </Button>
-        {entries && entries.length > 0 ? (
-          <ul>
-            {entries.map((entry) => (
-              <li key={entry._id.toString()}>{entry.text}</li>
-            ))}
-          </ul>
-        ) : (
-          <p>No entries found.</p>
-        )}
-      </Authenticated>
+      <MonthSelector
+        currentMonth={selectedMonth}
+        onPreviousMonth={handlePreviousMonth}
+        onNextMonth={handleNextMonth}
+        setMonth={(date: Date | undefined) => {
+          if (date) setSelectedMonth(date);
+        }}
+      />
+      <JournalEntryList currentMonth={selectedMonth} />
     </>
   );
 }
