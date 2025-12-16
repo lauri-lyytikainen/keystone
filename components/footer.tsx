@@ -26,7 +26,7 @@ interface Footer2Props {
 
 const Footer = ({
   logo = {
-    src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/block-1.svg",
+    src: "/keystone.svg",
     alt: "blocks for shadcn/ui",
     title: "Keystone",
     url: "/",
@@ -72,7 +72,7 @@ const Footer = ({
       ],
     },
   ],
-  copyright = "© 2025 Shadcnblocks.com. All rights reserved.",
+  copyright = "© 2025 Keystone. All rights reserved.",
   bottomLinks = [
     { text: "Terms and Conditions", url: "#" },
     { text: "Privacy Policy", url: "#" },
@@ -85,7 +85,7 @@ const Footer = ({
           <div className="grid grid-cols-2 gap-8 lg:grid-cols-6">
             <div className="col-span-2 mb-8 lg:mb-0">
               <div className="flex items-center gap-2 lg:justify-start">
-                <Logo url="https://shadcnblocks.com">
+                <Logo url="/">
                   <LogoImage
                     src={logo.src}
                     alt={logo.alt}
